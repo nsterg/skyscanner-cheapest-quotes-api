@@ -1,0 +1,78 @@
+{
+  "Quotes": [
+    {
+      "QuoteId": 1,
+      "MinPrice": 62,
+      "Direct": true,
+      "OutboundLeg": {
+        "CarrierIds": [
+          1050
+        ],
+        "OriginId": 66270,
+        "DestinationId": 40074,
+        "DepartureDate": "2016-10-10T00:00:00"
+      },
+      "InboundLeg": {
+        "CarrierIds": [
+          1050
+        ],
+        "OriginId": 40074,
+        "DestinationId": 65655,
+        "DepartureDate": "2016-10-23T00:00:00"
+      },
+      "QuoteDateTime": "2016-08-06T22:01:00"
+    },
+    {
+      "QuoteId": 2,
+      "MinPrice": 165,
+      "Direct": false,
+      "OutboundLeg": {
+        "CarrierIds": [
+          1324
+        ],
+        "OriginId": 65698,
+        "DestinationId": 40074,
+        "DepartureDate": "2016-12-26T00:00:00"
+      },
+      "InboundLeg": {
+        "CarrierIds": [
+          1324
+        ],
+        "OriginId": 40074,
+        "DestinationId": 65698,
+        "DepartureDate": "2016-12-30T00:00:00"
+      },
+      "QuoteDateTime": "2016-08-18T11:56:00"
+    }
+  ],
+  "Places": [
+    {
+      "PlaceId": 40074,
+      "IataCode": "ABZ",
+      "Name": "Aberdeen",
+      "Type": "Station",
+      "SkyscannerCode": "ABZ",
+      "CityName": "Aberdeen",
+      "CityId": "ABER",
+      "CountryName": "United Kingdom"
+    }
+  ],
+  "Carriers": [
+    {
+      "CarrierId": 1050,
+      "Name": "easyJet"
+    }
+  ],
+  "Currencies": [
+    {
+      "Code": "GBP",
+      "Symbol": "GBP",
+      "ThousandsSeparator": ",",
+      "DecimalSeparator": ".",
+      "SymbolOnLeft": true,
+      "SpaceBetweenAmountAndSymbol": false,
+      "RoundingCoefficient": 0,
+      "DecimalDigits": 2
+    }
+  ]
+}
