@@ -69,4 +69,15 @@ public class CurrencyDtoBuilder {
     return this;
   }
 
+  public CurrencyDtoBuilder withDefaultValues() {
+    this.decimalDigits = 2;
+    this.symbolOnLeft = true;
+    this.decimalSeparator = ".";
+    this.thousandsSeparator = ",";
+    this.roundingCoefficient = 0;
+    this.code = "GBP";
+    this.spaceBetweenAmountAndSymbol = false;
+    return this;
+  }
+
 }

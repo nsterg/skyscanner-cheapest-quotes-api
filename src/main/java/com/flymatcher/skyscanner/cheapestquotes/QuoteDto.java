@@ -59,7 +59,7 @@ public class QuoteDto {
   }
 
   public void setInboundLeg(final OutboundLeg inboundLeg) {
-    this.inboundLeg = outboundLeg;
+    this.inboundLeg = inboundLeg;
   }
 
   public OutboundLeg getInboundLeg() {

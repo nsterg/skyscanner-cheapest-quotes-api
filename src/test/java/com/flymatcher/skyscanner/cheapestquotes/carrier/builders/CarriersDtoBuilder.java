@@ -33,4 +33,10 @@ public class CarriersDtoBuilder {
     return this;
   }
 
+  public CarriersDtoBuilder withDefaultValues() {
+    this.carrierId = 1050;
+    this.name = "easyjet";
+    return this;
+  }
+
 }

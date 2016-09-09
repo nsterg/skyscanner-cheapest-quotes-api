@@ -76,4 +76,16 @@ public class PlaceDtoBuilder {
     return this;
   }
 
+  public PlaceDtoBuilder withDefaultValues() {
+    this.name = "Aberdeen";
+    this.placeId = 40074;
+    this.skyscannerCode = "ABZ";
+    this.type = "Station";
+    this.cityName = "United Kingdom";
+    this.cityId = "ABER";
+    this.countryName = "United Kingdom";
+    this.iataCode = "ABZ";
+    return this;
+  }
+
 }
