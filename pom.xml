@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.flymatcher</groupId>
 	<artifactId>skyscanner-cheapest-quotes-api</artifactId>
-	<version>1.0.2-SNAPSHOT</version>
+	<version>1.0.2</version>
 	<packaging>jar</packaging>
 	<scm>
 		<connection>scm:git:git//github.com/nsterg/skyscanner-cheapest-quotes-api.git</connection>
