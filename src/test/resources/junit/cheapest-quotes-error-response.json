@@ -1,0 +1,10 @@
+{
+  "ValidationErrors": [
+    {
+      "ParameterName": "Origin and Destination must be valid codes",
+      "ParameterValue": "Your inputs could not be parsed, please refer to documentation",
+      "Message": "Invalid Origin and Destination combination",
+      "ValidValues": "(City/Airport to Country),(Country to City/Airport)"
+    }
+  ]
+}

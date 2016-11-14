@@ -22,10 +22,10 @@ public class QuoteDto {
   private String quoteDateTime;
 
   @JsonProperty("OutboundLeg")
-  private OutboundLeg outboundLeg;
+  private SkyscannerLeg outboundLeg;
 
   @JsonProperty("InboundLeg")
-  private OutboundLeg inboundLeg;
+  private SkyscannerLeg inboundLeg;
 
   @JsonProperty("MinPrice")
   private double minPrice;
@@ -54,19 +54,19 @@ public class QuoteDto {
     this.quoteDateTime = quoteDateTime;
   }
 
-  public OutboundLeg getOutboundLeg() {
+  public SkyscannerLeg getOutboundLeg() {
     return outboundLeg;
   }
 
-  public void setInboundLeg(final OutboundLeg inboundLeg) {
+  public void setInboundLeg(final SkyscannerLeg inboundLeg) {
     this.inboundLeg = inboundLeg;
   }
 
-  public OutboundLeg getInboundLeg() {
+  public SkyscannerLeg getInboundLeg() {
     return inboundLeg;
   }
 
-  public void setOutboundLeg(final OutboundLeg outboundLeg) {
+  public void setOutboundLeg(final SkyscannerLeg outboundLeg) {
     this.outboundLeg = outboundLeg;
   }
 

@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.flymatcher.skyscanner.cheapestquotes.BrowseQuotesResponseAPIDto;
 import com.flymatcher.skyscanner.cheapestquotes.QuoteDto;
+import com.flymatcher.skyscanner.cheapestquotes.ValidationErrorDto;
 import com.flymatcher.skyscanner.cheapestquotes.carrier.CarriersDto;
 import com.flymatcher.skyscanner.cheapestquotes.carrier.builders.CarriersDtoBuilder;
 import com.flymatcher.skyscanner.cheapestquotes.currency.CurrencyDto;
@@ -20,6 +21,7 @@ public class BrowseQuotesResponseAPIDtoBuilder {
   private List<PlaceDto> places;
   private List<CarriersDto> carriers;
   private List<QuoteDto> quotes;
+  private List<ValidationErrorDto> validationErrors;
 
   private BrowseQuotesResponseAPIDtoBuilder() {}
 
@@ -34,7 +36,7 @@ public class BrowseQuotesResponseAPIDtoBuilder {
     browseQuotesResponseAPIDto.setPlaces(places);
     browseQuotesResponseAPIDto.setCarriers(carriers);
     browseQuotesResponseAPIDto.setQuotes(quotes);
-
+    browseQuotesResponseAPIDto.setValidationErrors(validationErrors);
     return browseQuotesResponseAPIDto;
   }
 
@@ -101,6 +103,25 @@ public class BrowseQuotesResponseAPIDtoBuilder {
 
     for (final PlaceDtoBuilder builder : builders) {
       this.places.add(builder.build());
+    }
+
+    return this;
+  }
+
+  public BrowseQuotesResponseAPIDtoBuilder withValidationErrors(
+      final ValidationErrorDtoBuilder... builders) {
+    return withValidationErrors(Arrays.asList(builders));
+
+  }
+
+  public BrowseQuotesResponseAPIDtoBuilder withValidationErrors(
+      final List<ValidationErrorDtoBuilder> builders) {
+    if (null == this.validationErrors) {
+      this.validationErrors = new ArrayList<ValidationErrorDto>();
+    }
+
+    for (final ValidationErrorDtoBuilder builder : builders) {
+      this.validationErrors.add(builder.build());
     }
 
     return this;

@@ -28,6 +28,9 @@ public class BrowseQuotesResponseAPIDto {
   @JsonProperty("Quotes")
   private List<QuoteDto> quotes;
 
+  @JsonProperty("ValidationErrors")
+  private List<ValidationErrorDto> validationErrors;
+
   public List<CurrencyDto> getCurrencies() {
     return currencies;
   }
@@ -60,6 +63,14 @@ public class BrowseQuotesResponseAPIDto {
     this.quotes = quotes;
   }
 
+
+  public List<ValidationErrorDto> getValidationErrors() {
+    return validationErrors;
+  }
+
+  public void setValidationErrors(final List<ValidationErrorDto> validationErrors) {
+    this.validationErrors = validationErrors;
+  }
 
   @Override
   public int hashCode() {

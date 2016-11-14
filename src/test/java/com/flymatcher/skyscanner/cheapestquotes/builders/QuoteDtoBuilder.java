@@ -1,6 +1,6 @@
 package com.flymatcher.skyscanner.cheapestquotes.builders;
 
-import com.flymatcher.skyscanner.cheapestquotes.OutboundLeg;
+import com.flymatcher.skyscanner.cheapestquotes.SkyscannerLeg;
 import com.flymatcher.skyscanner.cheapestquotes.QuoteDto;
 
 
@@ -9,8 +9,8 @@ public class QuoteDtoBuilder {
   private int quoteId;
   private boolean direct;
   private String quoteDateTime;
-  private OutboundLeg outboundLeg;
-  private OutboundLeg inboundLeg;
+  private SkyscannerLeg outboundLeg;
+  private SkyscannerLeg inboundLeg;
   private double minPrice;
 
   private QuoteDtoBuilder() {}
@@ -47,12 +47,12 @@ public class QuoteDtoBuilder {
     return this;
   }
 
-  public QuoteDtoBuilder withOutboundLeg(final OutboundLegBuilder builder) {
+  public QuoteDtoBuilder withOutboundLeg(final SkyscannerLegBuilder builder) {
     this.outboundLeg = builder.build();
     return this;
   }
 
-  public QuoteDtoBuilder withInboundLeg(final OutboundLegBuilder builder) {
+  public QuoteDtoBuilder withInboundLeg(final SkyscannerLegBuilder builder) {
     this.inboundLeg = builder.build();
     return this;
   }

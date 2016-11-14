@@ -2,8 +2,9 @@ package com.flymatcher.skyscanner.cheapestquotes;
 
 import static com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES;
 import static com.flymatcher.skyscanner.cheapestquotes.builders.BrowseQuotesResponseAPIDtoBuilder.aBrowseQuotesResponseAPIDto;
-import static com.flymatcher.skyscanner.cheapestquotes.builders.OutboundLegBuilder.aOutboundLeg;
 import static com.flymatcher.skyscanner.cheapestquotes.builders.QuoteDtoBuilder.aQuoteDto;
+import static com.flymatcher.skyscanner.cheapestquotes.builders.SkyscannerLegBuilder.aSkyscannerLeg;
+import static com.flymatcher.skyscanner.cheapestquotes.builders.ValidationErrorDtoBuilder.aValidationError;
 import static com.flymatcher.skyscanner.cheapestquotes.carrier.builders.CarriersDtoBuilder.aCarriersDto;
 import static com.flymatcher.skyscanner.cheapestquotes.currency.builders.CurrencyDtoBuilder.aCurrencyDto;
 import static com.flymatcher.skyscanner.cheapestquotes.place.builders.PlaceDtoBuilder.aPlaceDto;
@@ -30,19 +31,19 @@ public class QuotesResponseUnmarshalTest {
   }
 
   @Test
-  public void shouldUnmarshalCheapestQuotesResponse()
+  public void shouldUnmarshalCheapestQuotesSuccessResponse()
       throws JsonParseException, JsonMappingException, IOException {
 
     // @formatter:off
     final BrowseQuotesResponseAPIDto expectedDto = aBrowseQuotesResponseAPIDto()
                                                     .withQuotes(aQuoteDto()
                                                                 .withDirect(true)
-                                                                .withInboundLeg(aOutboundLeg()
+                                                                .withInboundLeg(aSkyscannerLeg()
                                                                                 .withCarrierIds(asList(1050))
                                                                                 .withDepartureDate("2016-10-23T00:00:00")
                                                                                 .withDestinationId(65655)
                                                                                 .withOriginId(40074))
-                                                                .withOutboundLeg(aOutboundLeg()
+                                                                .withOutboundLeg(aSkyscannerLeg()
                                                                                 .withCarrierIds(asList(1050))
                                                                                 .withDepartureDate("2016-10-10T00:00:00")
                                                                                 .withDestinationId(40074)
@@ -52,12 +53,12 @@ public class QuotesResponseUnmarshalTest {
                                                                 .withQuoteId(1), 
                                                                 aQuoteDto()
                                                                 .withDirect(false)
-                                                                .withInboundLeg(aOutboundLeg()
+                                                                .withInboundLeg(aSkyscannerLeg()
                                                                                 .withCarrierIds(asList(1324))
                                                                                 .withDepartureDate("2016-12-30T00:00:00")
                                                                                 .withDestinationId(65698)
                                                                                 .withOriginId(40074))
-                                                                .withOutboundLeg(aOutboundLeg()
+                                                                .withOutboundLeg(aSkyscannerLeg()
                                                                                 .withCarrierIds(asList(1324))
                                                                                 .withDepartureDate("2016-12-26T00:00:00")
                                                                                 .withDestinationId(40074)
@@ -88,8 +89,26 @@ public class QuotesResponseUnmarshalTest {
                                                   .build();
     // @formatter:on
 
+    final String json = readFileToString(
+        new File("src/test/resources/junit/cheapest-quotes-success-response.json"));
+
+    final BrowseQuotesResponseAPIDto actualDto =
+        mapper.readValue(json, BrowseQuotesResponseAPIDto.class);
+
+    assertEquals("Dto did not match expected input", expectedDto, actualDto);
+
+  }
+
+  @Test
+  public void shouldUnmarshalCheapestQuotesErrorResponse()
+      throws JsonParseException, JsonMappingException, IOException {
+
+    final BrowseQuotesResponseAPIDto expectedDto = aBrowseQuotesResponseAPIDto()
+        .withValidationErrors(aValidationError().withDefaultValues()).build();
+
+
     final String json =
-        readFileToString(new File("src/test/resources/junit/cheapest-quotes-response.json"));
+        readFileToString(new File("src/test/resources/junit/cheapest-quotes-error-response.json"));
 
     final BrowseQuotesResponseAPIDto actualDto =
         mapper.readValue(json, BrowseQuotesResponseAPIDto.class);

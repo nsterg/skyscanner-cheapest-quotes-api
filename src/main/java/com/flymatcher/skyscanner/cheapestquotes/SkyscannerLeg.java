@@ -9,7 +9,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-public class OutboundLeg {
+public class SkyscannerLeg {
 
   @JsonPropertyOrder({"DestinationId", "CarrierIds", "OriginId", "DepartureDate"})
 
